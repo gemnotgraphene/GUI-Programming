@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * and a list of small images on top of everything else.  The small images are placed by
  * clicking with the mouse.  The image that is placed is determined by the currentDrawImage
  * property; if this property is null, then clicking an existing image with the mouse will
- * remove that image.  
+ * remove that image. @gemnotphene 
  */
 public class DrawPanel extends JPanel {
 	
