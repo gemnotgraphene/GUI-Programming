@@ -7,20 +7,13 @@ import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-/**
- * A panel that can display a background image, a gradient over the image that changes
- * from almost transparent at the top to almost opaque at the bottom, a multiline text,
- * and a list of small images on top of everything else.  The small images are placed by
- * clicking with the mouse.  The image that is placed is determined by the currentDrawImage
- * property; if this property is null, then clicking an existing image with the mouse will
- * remove that image. @gemnotphene 
- */
+
 public class DrawPanel extends JPanel {
 	
 	private TextItem text = new TextItem(); // The TextItem displayed in this image.
 	                                        // It can be retrieved with getTextItem but can't be set.
 	
-	private Image backgroundImage = null;  // Seven properties that have "get" and "set" methods.
+	private Image backgroundImage = null;  // @Gemnotgraphene
 	private Color borderColor = Color.DARK_GRAY;
 	private int borderThickness = 3;
 	private Color gradientOverlayColor = Color.WHITE;
@@ -154,10 +147,7 @@ public class DrawPanel extends JPanel {
 		return copy;
 	}
 	
-	/**
-	 * Return this panel to its default state.  (The text will be "Hello World", on a gray
-	 * background.)
-	 */
+
 	public void clear() {
 		text = new TextItem();
 		backgroundImage = null;
