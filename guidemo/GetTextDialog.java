@@ -4,23 +4,13 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-/**
- * Defines a modal dialog for inputing multiline text.
- */
+
 public class GetTextDialog extends JDialog {
 	
 	private boolean canceled = false;
 	private JTextArea text;
 	
-	/**
-	 * Display the dialog box, wait for the user to dismiss it, and return the 
-	 * user's input, or null if the user cancels the dialog.
-	 * @param parent  A component whose frame is the parent of the dialog box.
-	 * @param initialText the initial contents of the inputs box; if null, the box is initially empty.
-	 * @return the text from the input box, or null if the user cancels the dialog.
-	 * Note that the return can be a blank string if the user clicks "OK" without entering
-	 * any text.
-	 */
+	
 	public static String showDialog(Component parent, String initialText) {
 		GetTextDialog dialog = new GetTextDialog(frameAncestor(parent), initialText);
 		dialog.setVisible(true);
@@ -36,9 +26,7 @@ public class GetTextDialog extends JDialog {
 		return (Frame)c;
 	}
 	
-	/**
-	 * Creates, but does not show, a dialog box.
-	 */
+
 	private GetTextDialog(Frame parent, String initialText) {
 		super(parent, "Input Your Text", true);
 		JPanel content = new JPanel();
