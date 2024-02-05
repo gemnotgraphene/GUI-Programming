@@ -7,14 +7,7 @@ import java.awt.image.BufferedImage;
 import javax.swing.*;
 import java.util.ArrayList;
 
-/**
- * Contains a set of Actions that can be used to select images that can
- * be added to a DrawPanel (in the form of ImageItems).  Can create a
- * toolbar containing a button for each Action in the set.  A button
- * shows an ImageIcon with the image that is selected by that button.
- * Clicking one of the buttons also sets the cursor in the DrawPanel
- * to be a (rough) copy of the image.
- */
+
 public class IconSupport {
 	
 	private DrawPanel panel;
@@ -48,6 +41,15 @@ public class IconSupport {
 		tbar.addSeparator(new Dimension(15,0));
 		tbar.add(actions.get(actions.size()-1));
 		return tbar;
+	}
+
+	public JMenu createMenu() {
+		JMenu stamper = new JMenu("Stamper");
+		for (int i = 0; i < actions.size() - 1; i++)
+			stamper.add(actions.get(i));
+		stamper.addSeparator();
+		stamper.add(actions.get(actions.size()-1));
+		return stamper;
 	}
 	
 	private class NoIconAction extends AbstractAction {
