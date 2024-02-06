@@ -3,9 +3,6 @@ package guidemo;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
-/**
- * Represents an image, drawn with its center at a specified point.
- */
 public class ImageItem {
 	
 	private BufferedImage image;
