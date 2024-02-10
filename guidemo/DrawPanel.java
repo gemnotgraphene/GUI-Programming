@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class DrawPanel extends JPanel {
 	
 	private TextItem text = new TextItem(); // The TextItem displayed in this image.
-	                                        // It can be retrieved with getTextItem but can't be set.
+	                                      
 	
 	private Image backgroundImage = null;  // @Gemnotgraphene
 	private Color borderColor = Color.DARK_GRAY;
