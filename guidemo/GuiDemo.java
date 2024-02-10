@@ -26,8 +26,8 @@ public class GuiDemo extends JFrame{
 	
 	public GuiDemo() {
 		
-		super("Sayings");  // Specifies the string for the title bar of the window.
-		JPanel content = new JPanel();  // To hold the content of the window.
+		super("Sayings");  
+		JPanel content = new JPanel();  
 		content.setBackground(Color.LIGHT_GRAY);
 		content.setLayout(new BorderLayout());
 		setContentPane(content);
