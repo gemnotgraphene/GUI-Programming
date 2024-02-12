@@ -6,18 +6,7 @@ import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
-/**
- * This class provides a slightly simplified interface to one of Java's
- * standard JFileChooser dialogs.  An object of type SimpleFileChooser
- * has methods that allow the user to select files for input or output.
- * If the object is used several times, the same JFileChooser is used
- * each time.  By default, the dialog box is set to the user's home
- * directory the first time it is used, and after that it remembers the
- * current directory between one use and the next.  However, methods
- * are provided for setting the current directory.  (Note:  On Windows,
- * the user's home directory will probably mean the user's "My Documents"
- * directory".)
- */
+
 public class SimpleFileChooser {
 
 	private JFileChooser dialog;  // The dialog, which is created when needed.
@@ -44,12 +33,7 @@ public class SimpleFileChooser {
 		dialog.setCurrentDirectory(new File(directoryName));
 	}
 
-	/**
-	 * Set the default directory for the dialog box.  The next time the 
-	 * dialog appears, it will show the contents of that directory.
-	 * @param directoryName The name of the new default directory.  If the 
-	 * name is null, then the user's home directory will be used.
-	 */
+
 	public void setDefaultDirectory(File directory) {
 		if (dialog == null)
 			dialog = new JFileChooser();
