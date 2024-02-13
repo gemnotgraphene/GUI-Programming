@@ -15,6 +15,9 @@ public class TextMenu extends JMenu {
 	
 	private JCheckBoxMenuItem bold;   // controls whether the text is bold or not.
 	private JCheckBoxMenuItem italic; // controls whether the text is italic or not.
+	private JRadioButtonMenuItem justifyLeft;
+	private JRadioButtonMenuItem justifyRight;
+	private JRadioButtonMenuItem justifyCenter;
 	
 	/**
 	 * Constructor creates all the menu commands and adds them to the menu.
@@ -52,6 +55,25 @@ public class TextMenu extends JMenu {
 				}
 			}
 		});
+		final JMenuItem lineSpacing = new JMenuItem("Set Line Spacing...");
+		lineSpacing.addActionListener( new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				double currentLineSpacing = panel.getTextItem().getLineHeightMultiplier();
+				String s = JOptionPane.showInputDialog(panel, 
+						"What line spacing do you want to use?", currentLineSpacing);
+				if (s != null && s.trim().length() > 0) {
+					try {
+						double newLineSpacing = Double.parseDouble(s.trim()); // can throw NumberFormatException
+						panel.getTextItem().setLineHeightMultiplier(newLineSpacing); // can throw IllegalArgumentException
+						panel.repaint();
+					}
+					catch (Exception e) {
+						JOptionPane.showMessageDialog(panel, s + " is not a legal line spacing.\n"
+								+"Please enter a positive number.");
+					}
+				}
+			}
+		});
 		final JMenuItem color = new JMenuItem("Set Color...");
 		color.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -77,12 +99,44 @@ public class TextMenu extends JMenu {
 				panel.repaint();
 			}
 		});
+		JMenu justifyTextMenu = new JMenu("Justify Text");
+		ButtonGroup buttonGroup = new ButtonGroup();
+		justifyLeft = new JRadioButtonMenuItem("Left");
+		justifyRight = new JRadioButtonMenuItem("Right");
+		justifyCenter = new JRadioButtonMenuItem("Center");
+		justifyLeft.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				panel.getTextItem().setJustify(TextItem.LEFT);
+				panel.repaint();
+			}
+		});
+		justifyRight.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				panel.getTextItem().setJustify(TextItem.RIGHT);
+				panel.repaint();
+			}
+		});
+		justifyCenter.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				panel.getTextItem().setJustify(TextItem.CENTER);
+				panel.repaint();
+			}
+		});
+		buttonGroup.add(justifyLeft);
+		buttonGroup.add(justifyRight);
+		buttonGroup.add(justifyCenter);
+		justifyTextMenu.add(justifyLeft);
+		justifyTextMenu.add(justifyRight);
+		justifyTextMenu.add(justifyCenter);
+		
 		add(change);
 		addSeparator();
 		add(size);
+		add(lineSpacing);
 		add(color);
 		add(italic);
 		add(bold);
+		add(justifyTextMenu);
 		addSeparator();
 		add(makeFontNameSubmenu());
 	}
@@ -97,6 +151,7 @@ public class TextMenu extends JMenu {
 	public void setDefaults() {
 		italic.setSelected(false);
 		bold.setSelected(false);
+		justifyLeft.setSelected(true);
 	}
 	
 	/**
