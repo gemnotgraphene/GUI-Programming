@@ -7,7 +7,7 @@ import java.util.Scanner;
 /**
  * Represents a multiline text, with various properties that can be
  * set.  A draw() method is included that will draw the text in a
- * graphics context, centered at a specified point. @gemnotgraphene
+ * graphics context, centered at a specified point.
  */
 public class TextItem {
 	
