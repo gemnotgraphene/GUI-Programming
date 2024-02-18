@@ -5,13 +5,10 @@ import java.awt.event.*;
 
 import javax.swing.*;;
 
-/**
- * A menu full of commands that affect the text shown
- * in a DrawPanel.
- */
+
 public class TextMenu extends JMenu {
 	
-	private final DrawPanel panel;    // the panel whose text is controlled by this menu
+	private final DrawPanel panel;   
 	
 	private JCheckBoxMenuItem bold;   // controls whether the text is bold or not.
 	private JCheckBoxMenuItem italic; // controls whether the text is italic or not.
