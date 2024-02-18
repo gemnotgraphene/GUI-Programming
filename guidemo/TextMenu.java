@@ -16,10 +16,7 @@ public class TextMenu extends JMenu {
 	private JRadioButtonMenuItem justifyRight;
 	private JRadioButtonMenuItem justifyCenter;
 	
-	/**
-	 * Constructor creates all the menu commands and adds them to the menu.
-	 * @param owner the panel whose text will be controlled by this menu.
-	 */
+
 	public TextMenu(DrawPanel owner) {
 		super("Text");
 		this.panel = owner;
@@ -138,25 +135,14 @@ public class TextMenu extends JMenu {
 		add(makeFontNameSubmenu());
 	}
 	
-	/**
-	 * Reset the state of the menu to reflect the default settings for text
-	 * in a DrawPanel.  (Sets the italic and bold checkboxes to unselected.)
-	 * This method is called by the main program when the user selects the
-	 * "New" command, to make sure that the menu state reflects the contents
-	 * of the panel.
-	 */
+
 	public void setDefaults() {
 		italic.setSelected(false);
 		bold.setSelected(false);
 		justifyLeft.setSelected(true);
 	}
 	
-	/**
-	 * Create a menu containing a list of all available fonts.
-	 * (It turns out this can be very messy, at least on Linux, but
-	 * it does show the use what is available and lets the user try
-	 * everything!)
-	 */
+
 	private JMenu makeFontNameSubmenu() {
 		ActionListener setFontAction = new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
