@@ -28,12 +28,7 @@ public class IconSupport {
 		actions.add(new NoIconAction());
 	}
 	
-	/**
-	 * Return a toolbar containing buttons representing the images that can be added
-	 * to the DrawPanel.
-	 * @param horizontal  a value of JToolBar.HORIZONTAL or JToolBar.VERTICAL tells
-	 * whether the toolbar is meant to have horizontal or vertical orientation.
-	 */
+
 	public JToolBar createToolbar(boolean horizontal) {
 		JToolBar tbar = new JToolBar( horizontal? JToolBar.HORIZONTAL : JToolBar.VERTICAL);
 		for (int i = 0; i < actions.size() - 1; i++)
@@ -77,7 +72,7 @@ public class IconSupport {
 			   // Note: The name is surpressed in toolbars, but not in menus.
 			super(name,new ImageIcon(iconImages.get(n)));
 			iconNumber = n;
-			putValue(Action.SHORT_DESCRIPTION, "Use Mouse to Stamp this Icon"); // tooltip
+			putValue(Action.SHORT_DESCRIPTION, "Use Mouse to Stamp this Icon"); 
 		}
 		public void actionPerformed(ActionEvent evt) {
 			BufferedImage image = iconImages.get(iconNumber);
